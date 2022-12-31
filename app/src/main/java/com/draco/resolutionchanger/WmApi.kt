@@ -57,7 +57,7 @@ class WmApi(private val contentResolver: ContentResolver) {
         try {
             Class.forName("android.view.IWindowManager")
                     .getMethod("setForcedDisplaySize", Int::class.javaPrimitiveType, Int::class.javaPrimitiveType, Int::class.javaPrimitiveType)
-                    .invoke(wmService, Display.DEFAULT_DISPLAY, x, y)
+                    .invoke(wmService, 2, x, y)
         } catch (_: Exception) {}
     }
 
@@ -70,7 +70,7 @@ class WmApi(private val contentResolver: ContentResolver) {
         try {
             Class.forName("android.view.IWindowManager")
                     .getMethod("clearForcedDisplaySize", Int::class.javaPrimitiveType)
-                    .invoke(wmService, Display.DEFAULT_DISPLAY)
+                    .invoke(wmService, 2)
         } catch (_: Exception) {}
     }
 
@@ -84,13 +84,13 @@ class WmApi(private val contentResolver: ContentResolver) {
         try {
             Class.forName("android.view.IWindowManager")
                     .getMethod("setForcedDisplayDensity", Int::class.javaPrimitiveType, Int::class.javaPrimitiveType)
-                    .invoke(wmService, Display.DEFAULT_DISPLAY, density)
+                    .invoke(wmService, 2, density)
         } catch (_: Exception) {}
 
         try {
             Class.forName("android.view.IWindowManager")
                     .getMethod("setForcedDisplayDensityForUser", Int::class.javaPrimitiveType, Int::class.javaPrimitiveType, Int::class.javaPrimitiveType)
-                    .invoke(wmService, Display.DEFAULT_DISPLAY, density, userId)
+                    .invoke(wmService, 2, density, userId)
         } catch (_: Exception) {}
     }
 
@@ -104,13 +104,13 @@ class WmApi(private val contentResolver: ContentResolver) {
         try {
             Class.forName("android.view.IWindowManager")
                     .getMethod("clearForcedDisplayDensity", Int::class.javaPrimitiveType)
-                    .invoke(wmService, Display.DEFAULT_DISPLAY)
+                    .invoke(wmService, 2)
         } catch (_: Exception) {}
 
         try {
             Class.forName("android.view.IWindowManager")
                     .getMethod("clearForcedDisplayDensityForUser", Int::class.javaPrimitiveType, Int::class.javaPrimitiveType)
-                    .invoke(wmService, Display.DEFAULT_DISPLAY, userId)
+                    .invoke(wmService, 2, userId)
         } catch (_: Exception) {}
     }
 }
